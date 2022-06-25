@@ -42,6 +42,9 @@ class ProfileHydrator
         $this->profile->setPrivate($data->is_private);
         $this->profile->setVerified($data->is_verified);
         $this->profile->setMediaCount($data->edge_owner_to_timeline_media->count);
+        $this->profile->setMutualFollowedBy($data->edge_mutual_followed_by->count);
+        $this->profile->setFollowsViewer($data->follows_viewer);
+        $this->profile->setFollowedByViewer($data->followed_by_viewer);
 
         if (property_exists($data, 'biography')) {
             $this->profile->setBiography($data->biography);

@@ -59,12 +59,26 @@ class Profile
     /**
      * @var bool
      */
+    private $followsViewer;
+
+    /**
+     * @var bool
+     */
+    private $followedByViewer;
+
+    /**
+     * @var bool
+     */
     private $verified;
 
     /**
      * @var int
      */
     private $mediaCount = 0;
+    /**
+     * @var int
+     */
+    private $mutualFollowedBy = 0;
 
     /**
      * @var Media[]
@@ -435,5 +449,35 @@ class Profile
     public function setEndCursorIgtvs(?string $endCursorIgtvs): void
     {
         $this->endCursorIgtvs = $endCursorIgtvs;
+    }
+
+    public function isFollowsViewer(): bool
+    {
+        return $this->followsViewer;
+    }
+
+    public function setFollowsViewer(bool $followsViewer): void
+    {
+        $this->followsViewer = $followsViewer;
+    }
+
+    public function isFollowedByViewer(): bool
+    {
+        return $this->followedByViewer;
+    }
+
+    public function setFollowedByViewer(bool $followedByViewer): void
+    {
+        $this->followedByViewer = $followedByViewer;
+    }
+
+    public function getMutualFollowedBy(): int
+    {
+        return $this->mutualFollowedBy;
+    }
+
+    public function setMutualFollowedBy(int $mutualFollowedBy): void
+    {
+        $this->mutualFollowedBy = $mutualFollowedBy;
     }
 }
