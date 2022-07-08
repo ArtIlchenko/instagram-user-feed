@@ -396,10 +396,16 @@ class Api
      */
     public function getProfileById(int $id): Profile
     {
-        $feed = new JsonProfileDataFeed($this->client, $this->session);
-        $userName = $feed->fetchData($id);
+        $userName = $this->getUsernameById($id);
 
         return $this->getProfile($userName);
+    }
+
+    public function getUsernameById(int $id): string
+    {
+        $feed = new JsonProfileDataFeed($this->client, $this->session);
+
+        return $feed->fetchData($id);
     }
 
     /**
