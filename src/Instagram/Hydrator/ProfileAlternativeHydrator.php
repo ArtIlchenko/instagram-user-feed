@@ -46,6 +46,10 @@ class ProfileAlternativeHydrator
             $this->profile->setFollowing($data->following_count);
         }
 
+        if (property_exists($data, 'mutual_followers_count')) {
+            $this->profile->setMutualFollowedBy($data->mutual_followers_count);
+        }
+
         if (property_exists($data, 'hd_profile_pic_url_info')) {
             $this->profile->setProfilePicture($data->hd_profile_pic_url_info->url);
         }
